@@ -1,14 +1,9 @@
 package com.example.udemy_di
 
 import android.util.Log
+import javax.inject.Inject
 
-class Battery {
+interface Battery {
 
-    init {
-        Log.i("MYTAG", "Battery Constructed")
-    }
-
-    fun getPower() {
-        Log.i("MYTAG", "Battery power is available")
-    }
+    fun getPower()
 }

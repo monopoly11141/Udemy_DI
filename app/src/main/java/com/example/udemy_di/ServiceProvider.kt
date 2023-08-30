@@ -1,8 +1,9 @@
 package com.example.udemy_di
 
 import android.util.Log
+import javax.inject.Inject
 
-class ServiceProvider {
+class ServiceProvider @Inject constructor(){
 
 
     fun getServiceProvider() {

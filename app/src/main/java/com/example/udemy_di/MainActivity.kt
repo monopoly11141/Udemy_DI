@@ -2,18 +2,27 @@ package com.example.udemy_di
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
+
+    @Inject
+    lateinit var smartPhone : SmartPhone
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val battery = Battery()
-        val memoryCard = MemoryCard()
-        val serviceProvider = ServiceProvider()
-        val simCard = SIMCard(serviceProvider)
+//        DaggerSmartPhoneComponent.create()
+//            .inject(this)
 
-        val smartPhone = SmartPhone(battery, simCard, memoryCard)
+        (application as SmartPhoneApplication).smartPhoneComponent
+            .inject(this)
+
         smartPhone.makeACallWithRecording()
+
+
+//        val smartPhone = SmartPhone(Battery(), SIMCard(ServiceProvider()), MemoryCard())
+//        smartPhone.makeACallWithRecording()
     }
 }

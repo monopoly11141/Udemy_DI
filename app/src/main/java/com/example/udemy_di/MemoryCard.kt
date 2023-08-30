@@ -1,8 +1,9 @@
 package com.example.udemy_di
 
 import android.util.Log
+import javax.inject.Inject
 
-class MemoryCard {
+class MemoryCard{
 
     init {
         Log.i("MYTAG", "Memory Card Constructed")
